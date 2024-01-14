@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROPOSAL</title>
+    <link rel="stylesheet" href="proposal.css">
+</head>
+<body>
+    <div class="container">
+        <p id="main-text">Do you wanna go out with me ?</p>
+        <div class="animation">
+           <img id="gift"src="animation.gif" alt="">
+        </div>
+        <div class="button-container">
+                <button id="first-button" onclick="changeGift()">Yes</button>
+                <button id="movingButton" onmouseover="moveButton()">No</button>
+                
+        </div>
+    </div>
+    <script>
+        let moveCount = 0;
+    
+        function moveButton() {
+          const button = document.getElementById('movingButton');
+          const maxWidth = window.innerWidth - button.offsetWidth;
+          const maxHeight = window.innerHeight - button.offsetHeight;
+    
+          if (moveCount < 2) {
+            // Generate random position within the window
+            const randomLeft = Math.floor(Math.random() * maxWidth);
+            const randomTop = Math.floor(Math.random() * maxHeight);
+    
+            // Set new position
+            button.style.left = `${randomLeft}px`;
+            button.style.top = `${randomTop}px`;
+    
+            moveCount++;
+          } else {
+            // After the 3rd time, hide the button
+            button.style.display = 'none';
+          }
+        }
+
+        function changeGift() {
+      // Change the image source and text content on button click
+      const giftImage = document.getElementById('gift');
+      const mainText = document.getElementById('main-text');
+      
+        
+      
+      // Change image source
+      giftImage.src = 'https://media.tenor.com/5rtcYoaM-aYAAAAj/%E1%83%99%E1%83%98%E1%83%98-%E1%83%99%E1%83%98.gif';
+
+      // Change text content
+      mainText.textContent = ' Yesss !!! Finally Less Gooooo!!';
+      movingButton.style.opacity=0;
+    }
+      </script>
+</body>
+</html>
